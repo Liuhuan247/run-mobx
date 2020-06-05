@@ -31,6 +31,7 @@ let counter = {
 
 setInterval(() => {
     counter.count++;
+    console.log(counter);
 }, 1000);
 
 const TimerView: FC<IProps> = (props) => {
@@ -41,6 +42,10 @@ const TimerView: FC<IProps> = (props) => {
             <div>{props.counter.count}</div>
         </>
     );
+};
+
+const Test: FC<{ count: number }> = (props: any) => {
+    return <div>{props.count}</div>;
 };
 
 const Button: FC<{ appState: typeof appState }> = observer((props) => {
@@ -64,6 +69,8 @@ const Counter: React.FC<CounterProps> = (props) => (
 
 ReactDOM.render(
     <TimerView appState={appState} counter={counter} />,
+    // <Test count={counter.count} />,
+    // <Counter counter={counter} />,
     document.getElementById("root")
 );
 
