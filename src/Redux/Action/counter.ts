@@ -1,10 +1,10 @@
 import { ADD, ASYNC_ADD } from "../Constant";
-import { ActionCreator, AnyAction, Dispatch } from "redux";
+import { Dispatch } from "redux";
 
 /**
  * 同步增加
  */
-export const add: ActionCreator<AnyAction> = () => ({ type: ADD });
+export const add = () => ({ type: ADD });
 
 /**
  * 异步增加
