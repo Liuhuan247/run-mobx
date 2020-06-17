@@ -1,12 +1,19 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import ReduxCounter from "./Redux";
-import { Provider } from "react-redux";
-import store from "./Redux/Store";
+import dva from "dva";
+import model from "./dva/model";
+import DvaCounter from "./dva";
 
-ReactDOM.render(
-    <Provider store={store}>
-        <ReduxCounter />
-    </Provider>,
-    document.getElementById("root")
-);
+const app = dva();
+
+app.model(model);
+
+app.router(() => <DvaCounter />);
+
+app.start("#root");
+
+// ReactDOM.render(
+//     <Provider store={store}>
+//         <ReduxCounter />
+//     </Provider>,
+//     document.getElementById("root")
+// );
