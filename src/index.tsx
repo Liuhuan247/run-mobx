@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Timer from "./observer";
+import MobxCounter from "./mobx";
 import { observable } from "mobx";
 import { Provider } from "mobx-react";
 import Store from "./mobx/store";
@@ -17,7 +17,11 @@ setInterval(() => {
 
 let store = new Store();
 
+export type StoreType = typeof store;
+
 ReactDOM.render(
-    <Provider store={store}></Provider>,
+    <Provider store={store}>
+        <MobxCounter />
+    </Provider>,
     document.getElementById("root")
 );
