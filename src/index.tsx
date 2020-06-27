@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HoxCounter1 from "./hox";
-import HoxCounter2 from "./hox";
+import TodoList from "./recoil/Todos";
+import { RecoilRoot } from "recoil";
 
 ReactDOM.render(
-    <>
-        <HoxCounter1 />
-        <HoxCounter2 />
-    </>,
+    <RecoilRoot>
+        <TodoList />
+    </RecoilRoot>,
     document.getElementById("root")
 );
