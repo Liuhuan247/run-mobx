@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import ReduxCounter from "./Redux";
-import { Provider } from "react-redux";
-import store from "./Redux/Store";
+import HoxCounter1 from "./hox";
+import HoxCounter2 from "./hox";
 
 ReactDOM.render(
-    <Provider store={store}>
-        <ReduxCounter />
-    </Provider>,
+    <>
+        <HoxCounter1 />
+        <HoxCounter2 />
+    </>,
     document.getElementById("root")
 );
