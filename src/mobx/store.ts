@@ -1,10 +1,11 @@
 import { observable, action, runInAction } from "mobx";
 
-const fetch = () => new Promise<any>((resolve) => {
-    setTimeout(() => {
-        resolve({code: 1});
-    }, 1000);
-});
+const fetch = () =>
+    new Promise<{ code: number }>((resolve) => {
+        setTimeout(() => {
+            resolve({ code: 1 });
+        }, 1000);
+    });
 export default class Store {
     @observable count = 0;
     @action.bound add() {
@@ -12,12 +13,12 @@ export default class Store {
     }
 
     @action.bound asyncAdd() {
-        fetch().then(r => {
+        fetch().then((r) => {
             if (r.code === 1) {
                 runInAction(() => {
                     this.add();
-                })
+                });
             }
-        })
+        });
     }
 }
