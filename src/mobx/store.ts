@@ -15,9 +15,7 @@ export default class Store {
     @action.bound asyncAdd() {
         fetch().then((r) => {
             if (r.code === 1) {
-                runInAction(() => {
-                    this.add();
-                });
+                runInAction(this.add);
             }
         });
     }
